@@ -1,0 +1,9 @@
+# 1. Crear carpeta y entrar
+mkdir youtube-downloader
+cd youtube-downloader
+
+# 2. Instalar dependencias
+npm install express @distube/ytdl-core
+
+# 3. Ejecutar
+npm start
