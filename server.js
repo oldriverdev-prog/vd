@@ -1,12 +1,20 @@
 const express = require('express');
 const ytdl = require('@distube/ytdl-core');
 const path = require('path');
+const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Archivos estáticos (frontend)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Permitir todas las peticiones (modo desarrollo)
+app.use(cors({
+    origin: '*', // Permite cualquier origen
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 
 // Ruta para descargar
 app.get('/download', async (req, res) => {
